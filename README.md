@@ -63,14 +63,4 @@ If it loads correctly, Prolog will return `true.`
 ?- trip_summary(udaipur, Cost, Rating, Season).
 ```
 
-## For college presentation
-You can explain:
-1. Facts store destination knowledge.
-2. Rules match user preferences.
-3. Scoring rule finds best possible place.
-4. Insertion sort is written manually.
-5. User trip is saved using dynamic facts.
-6. Natural language style rules make the system easy to query.
 
-## Suggested project title
-**Travel Planning Management and Recommendation System using Prolog**
