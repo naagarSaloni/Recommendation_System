@@ -1,0 +1,35 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to right, #667eea, #764ba2);
+}
+
+.container {
+  text-align: center;
+  padding: 40px;
+  color: white;
+}
+
+input {
+  margin: 8px;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+}
+
+button {
+  padding: 10px 20px;
+  background: #ff7e5f;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+}
+
+.card {
+  margin-top: 20px;
+  padding: 20px;
+  background: white;
+  color: black;
+  border-radius: 15px;
+}
