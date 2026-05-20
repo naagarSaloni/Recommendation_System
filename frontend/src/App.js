@@ -20,7 +20,7 @@ function App() {
   const destinationImages = {
 
   goa:
-    "https://images.unsplash.com/photo-1518509562904-1ea51d1e0d1b?q=80&w=1600",
+    "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1600",
 
   manali:
     "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?q=80&w=1600",
@@ -44,7 +44,7 @@ function App() {
     "https://images.unsplash.com/photo-1622308644420-b20142dc993c?q=80&w=1600",
 
   darjeeling:
-    "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=1600",
+     "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1600",
 
   andaman:
     "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1600",
@@ -53,10 +53,10 @@ function App() {
     "https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1600",
 
   varanasi:
-    "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?q=80&w=1600",
+    "https://images.unsplash.com/photo-1627894483216-2138af692e32?q=80&w=1600",
 
   meghalaya:
-    "https://images.unsplash.com/photo-1627894483216-2138af692e32?q=80&w=1600",
+    "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1600",
 
   ooty:
     "https://images.unsplash.com/photo-1593693397690-362cb9666fc2?q=80&w=1600",
@@ -68,7 +68,7 @@ function App() {
     "https://images.unsplash.com/photo-1609947017136-9daf32a5eb16?q=80&w=1600",
 
   coorg:
-    "https://images.unsplash.com/photo-1635151239962-4b90f1c63f59?q=80&w=1600"
+    "https://images.unsplash.com/photo-1593693397690-362cb9666fc2?q=80&w=1600"
 
 };
 
@@ -203,19 +203,19 @@ function App() {
               onChange={handleChange}
             >
               <option value="">Budget</option>
-              <option value="low">Low</option>
-              <option value="medium">Medium</option>
-              <option value="high">High</option>
+  <option value="1">Low</option>
+  <option value="2">Medium</option>
+  <option value="3">High</option>
             </select>
 
             <select
               name="duration"
               onChange={handleChange}
             >
-              <option value="">Duration</option>
-              <option value="short">Short</option>
-              <option value="medium">Medium</option>
-              <option value="long">Long</option>
+               <option value="">Duration</option>
+  <option value="1">Short</option>
+  <option value="2">Medium</option>
+  <option value="3">Long</option>
             </select>
 
             <select
