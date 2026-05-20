@@ -1,14 +1,17 @@
-% ==========================================================
+ % ==========================================================
 % Travel Planning Management System (Prolog)
+% Advanced AI Expert System Project
 % MCA II Semester AI Project
 % Domain: Tourist Site / Travel Recommendation
 % ==========================================================
 
 :- dynamic user_trip/7.
+:- dynamic user_preference/2.
 
-% ----------------------------------------------------------
-% FACTS: destination(Name, Purpose, Climate, Budget, Duration, Transport, Crowd).
-% ----------------------------------------------------------
+% ==========================================================
+% FACTS: destination(Name, Purpose, Climate, Budget,
+%                    Duration, Transport, Crowd).
+% ==========================================================
 
 destination(manali, adventure, cold, medium, medium, bus, medium).
 destination(manali, honeymoon, cold, medium, medium, bus, medium).
@@ -94,124 +97,164 @@ destination(meghalaya, adventure, pleasant, medium, long, flight, low).
 destination(meghalaya, photography, pleasant, medium, long, flight, low).
 destination(meghalaya, leisure, pleasant, medium, long, flight, low).
 
-% ----------------------------------------------------------
-% FACTS: hotel_type(Destination, HotelCategory).
-% ----------------------------------------------------------
+% ==========================================================
+% HOTEL TYPES
+% ==========================================================
 
 hotel_type(manali, hotel).
 hotel_type(manali, resort).
+
 hotel_type(goa, resort).
 hotel_type(goa, beach_hotel).
+
 hotel_type(jaipur, heritage_hotel).
 hotel_type(jaipur, hotel).
+
 hotel_type(shimla, hotel).
 hotel_type(shimla, cottage).
+
 hotel_type(udaipur, lake_view_hotel).
 hotel_type(udaipur, resort).
+
 hotel_type(rishikesh, camp).
 hotel_type(rishikesh, hostel).
+
 hotel_type(darjeeling, hotel).
 hotel_type(darjeeling, homestay).
+
 hotel_type(kerala, houseboat).
 hotel_type(kerala, resort).
+
 hotel_type(ladakh, camp).
 hotel_type(ladakh, guest_house).
+
 hotel_type(varanasi, dharamshala).
 hotel_type(varanasi, hotel).
+
 hotel_type(andaman, beach_resort).
 hotel_type(andaman, hotel).
+
 hotel_type(mussoorie, hotel).
 hotel_type(mussoorie, cottage).
+
 hotel_type(amritsar, hotel).
 hotel_type(amritsar, guest_house).
+
 hotel_type(agra, hotel).
 hotel_type(agra, heritage_hotel).
+
 hotel_type(ooty, cottage).
 hotel_type(ooty, hotel).
+
 hotel_type(kasol, hostel).
 hotel_type(kasol, camp).
+
 hotel_type(mount_abu, hotel).
 hotel_type(mount_abu, resort).
+
 hotel_type(srinagar, houseboat).
 hotel_type(srinagar, hotel).
+
 hotel_type(hampi, homestay).
 hotel_type(hampi, hostel).
+
 hotel_type(coorg, resort).
 hotel_type(coorg, homestay).
+
 hotel_type(meghalaya, homestay).
 hotel_type(meghalaya, guest_house).
 
-% ----------------------------------------------------------
-% FACTS: activity(Destination, Activity).
-% ----------------------------------------------------------
+% ==========================================================
+% ACTIVITIES
+% ==========================================================
 
 activity(manali, paragliding).
 activity(manali, snow_view).
 activity(manali, trekking).
+
 activity(goa, beach).
 activity(goa, nightlife).
 activity(goa, water_sports).
+
 activity(jaipur, palace_visit).
 activity(jaipur, shopping).
 activity(jaipur, fort_tour).
+
 activity(shimla, mall_road).
 activity(shimla, toy_train).
 activity(shimla, sightseeing).
+
 activity(udaipur, boat_ride).
 activity(udaipur, palace_visit).
 activity(udaipur, photography).
+
 activity(rishikesh, river_rafting).
 activity(rishikesh, yoga).
 activity(rishikesh, camping).
+
 activity(darjeeling, tea_garden).
 activity(darjeeling, toy_train).
 activity(darjeeling, sunrise_view).
+
 activity(kerala, backwaters).
 activity(kerala, ayurveda).
 activity(kerala, houseboat_stay).
+
 activity(ladakh, bike_trip).
 activity(ladakh, monastery_visit).
 activity(ladakh, stargazing).
+
 activity(varanasi, ganga_aarti).
 activity(varanasi, temple_visit).
 activity(varanasi, boat_ride).
+
 activity(andaman, scuba_diving).
 activity(andaman, beach).
 activity(andaman, island_tour).
+
 activity(mussoorie, sightseeing).
 activity(mussoorie, cable_car).
 activity(mussoorie, shopping).
+
 activity(amritsar, golden_temple).
 activity(amritsar, wagah_border).
 activity(amritsar, local_food).
+
 activity(agra, taj_mahal).
 activity(agra, fort_tour).
 activity(agra, heritage_walk).
+
 activity(ooty, boating).
 activity(ooty, tea_garden).
 activity(ooty, sightseeing).
+
 activity(kasol, trekking).
 activity(kasol, riverside_camping).
 activity(kasol, cafe_hopping).
+
 activity(mount_abu, boating).
 activity(mount_abu, sunset_point).
 activity(mount_abu, temple_visit).
+
 activity(srinagar, shikara_ride).
 activity(srinagar, garden_visit).
 activity(srinagar, snowfall).
+
 activity(hampi, ruins_exploration).
 activity(hampi, cycling).
 activity(hampi, photography).
+
 activity(coorg, coffee_estate).
 activity(coorg, waterfall_visit).
 activity(coorg, trekking).
+
 activity(meghalaya, cave_exploration).
 activity(meghalaya, waterfall_visit).
 activity(meghalaya, living_root_bridge).
 
-% ----------------------------------------------------------
-% FACTS: best_season(Destination, Season).
-% ----------------------------------------------------------
+% ==========================================================
+% BEST SEASON
+% ==========================================================
 
 best_season(manali, winter).
 best_season(goa, winter).
@@ -235,9 +278,9 @@ best_season(hampi, winter).
 best_season(coorg, winter).
 best_season(meghalaya, monsoon).
 
-% ----------------------------------------------------------
-% FACTS: estimated_cost(Destination, Amount).
-% ----------------------------------------------------------
+% ==========================================================
+% COST AND RATINGS
+% ==========================================================
 
 estimated_cost(manali, 18000).
 estimated_cost(goa, 25000).
@@ -261,10 +304,6 @@ estimated_cost(hampi, 12000).
 estimated_cost(coorg, 18000).
 estimated_cost(meghalaya, 28000).
 
-% ----------------------------------------------------------
-% FACTS: rating(Destination, Score).
-% ----------------------------------------------------------
-
 rating(manali, 8).
 rating(goa, 9).
 rating(jaipur, 8).
@@ -287,9 +326,17 @@ rating(hampi, 8).
 rating(coorg, 8).
 rating(meghalaya, 9).
 
-% ----------------------------------------------------------
-% BASIC HELPER RULES
-% ----------------------------------------------------------
+% ==========================================================
+% ECO FRIENDLY DESTINATIONS
+% ==========================================================
+
+eco_friendly_destination(meghalaya).
+eco_friendly_destination(coorg).
+eco_friendly_destination(rishikesh).
+
+% ==========================================================
+% BASIC RULES
+% ==========================================================
 
 cheap_trip(Destination) :-
     estimated_cost(Destination, Cost),
@@ -314,273 +361,395 @@ spiritual_trip(Destination) :-
 low_crowd_place(Destination) :-
     destination(Destination, _, _, _, _, _, low).
 
-short_trip(Destination) :-
-    destination(Destination, _, _, _, short, _, _).
+% ==========================================================
+% RECOMMENDATION RULES
+% ==========================================================
 
-long_trip(Destination) :-
-    destination(Destination, _, _, _, long, _, _).
+recommend_trip(Purpose, Climate, Budget, Duration,
+               Transport, Crowd, Destination) :-
 
-winter_destination(Destination) :-
-    best_season(Destination, winter).
+    destination(Destination, Purpose, Climate,
+                Budget, Duration, Transport, Crowd), !.
 
-summer_destination(Destination) :-
-    best_season(Destination, summer).
-
-% ----------------------------------------------------------
-% MEMBERSHIP AND LIST HELPERS (custom, minimal built-ins)
-% ----------------------------------------------------------
-
-my_member(X, [X|_]).
-my_member(X, [_|T]) :-
-    my_member(X, T).
-
-my_append([], L, L).
-my_append([H|T], L, [H|R]) :-
-    my_append(T, L, R).
-
-not_in_list(_, []).
-not_in_list(X, [H|T]) :-
-    X \= H,
-    not_in_list(X, T).
-
-remove_duplicates([], []).
-remove_duplicates([H|T], [H|R]) :-
-    not_in_list(H, T),
-    remove_duplicates(T, R).
-remove_duplicates([H|T], R) :-
-    my_member(H, T),
-    remove_duplicates(T, R).
-
-% ----------------------------------------------------------
-% COLLECT DESTINATIONS BY CONDITIONS
-% ----------------------------------------------------------
-
-match_destination(Purpose, Climate, Budget, Duration, Transport, Crowd, Destination) :-
-    destination(Destination, Purpose, Climate, Budget, Duration, Transport, Crowd).
-
-recommend_trip(Purpose, Climate, Budget, Duration, Transport, Crowd, Destination) :-
-    match_destination(Purpose, Climate, Budget, Duration, Transport, Crowd, Destination), !.
-
-recommend_by_purpose(Purpose, Destination) :-
-    destination(Destination, Purpose, _, _, _, _, _).
-
-recommend_by_budget(Budget, Destination) :-
-    destination(Destination, _, _, Budget, _, _, _).
-
-recommend_by_climate(Climate, Destination) :-
-    destination(Destination, _, Climate, _, _, _, _).
-
-recommend_by_transport(Transport, Destination) :-
-    destination(Destination, _, _, _, _, Transport, _).
-
-recommend_by_crowd(Crowd, Destination) :-
-    destination(Destination, _, _, _, _, _, Crowd).
+recommend_by_activity(Activity, Destination) :-
+    activity(Destination, Activity).
 
 recommend_by_season(Season, Destination) :-
     best_season(Destination, Season).
 
-recommend_activity(Activity, Destination) :-
-    activity(Destination, Activity).
+recommend_hotel(Destination, Hotel) :-
+    hotel_type(Destination, Hotel).
 
-recommend_hotel(Destination, HotelType) :-
-    hotel_type(Destination, HotelType).
+% ==========================================================
+% SCORING RULES
+% ==========================================================
 
-% ----------------------------------------------------------
-% SCORING RULES FOR SMART RECOMMENDATION
-% ----------------------------------------------------------
-
-purpose_score(Destination, Purpose, 3) :- destination(Destination, Purpose, _, _, _, _, _), !.
+purpose_score(Destination, Purpose, 3) :-
+    destination(Destination, Purpose, _, _, _, _, _), !.
 purpose_score(_, _, 0).
 
-climate_score(Destination, Climate, 2) :- destination(Destination, _, Climate, _, _, _, _), !.
+climate_score(Destination, Climate, 2) :-
+    destination(Destination, _, Climate, _, _, _, _), !.
 climate_score(_, _, 0).
 
-budget_score(Destination, Budget, 2) :- destination(Destination, _, _, Budget, _, _, _), !.
+budget_score(Destination, Budget, 2) :-
+    destination(Destination, _, _, Budget, _, _, _), !.
 budget_score(_, _, 0).
 
-duration_score(Destination, Duration, 1) :- destination(Destination, _, _, _, Duration, _, _), !.
+duration_score(Destination, Duration, 1) :-
+    destination(Destination, _, _, _, Duration, _, _), !.
 duration_score(_, _, 0).
 
-transport_score(Destination, Transport, 1) :- destination(Destination, _, _, _, _, Transport, _), !.
+transport_score(Destination, Transport, 1) :-
+    destination(Destination, _, _, _, _, Transport, _), !.
 transport_score(_, _, 0).
 
-crowd_score(Destination, Crowd, 1) :- destination(Destination, _, _, _, _, _, Crowd), !.
+crowd_score(Destination, Crowd, 1) :-
+    destination(Destination, _, _, _, _, _, Crowd), !.
 crowd_score(_, _, 0).
 
-trip_score(Destination, Purpose, Climate, Budget, Duration, Transport, Crowd, Score) :-
+trip_score(Destination, Purpose, Climate, Budget,
+           Duration, Transport, Crowd, Score) :-
+
     purpose_score(Destination, Purpose, S1),
     climate_score(Destination, Climate, S2),
     budget_score(Destination, Budget, S3),
     duration_score(Destination, Duration, S4),
     transport_score(Destination, Transport, S5),
     crowd_score(Destination, Crowd, S6),
+
     Score is S1 + S2 + S3 + S4 + S5 + S6.
 
-% ----------------------------------------------------------
-% BUILD SCORE LIST
-% ----------------------------------------------------------
+% ==========================================================
+% DESTINATION LIST
+% ==========================================================
 
 all_destinations([
-    manali, goa, jaipur, shimla, udaipur, rishikesh, darjeeling,
-    kerala, ladakh, varanasi, andaman, mussoorie, amritsar, agra,
-    ooty, kasol, mount_abu, srinagar, hampi, coorg, meghalaya
+manali, goa, jaipur, shimla, udaipur,
+rishikesh, darjeeling, kerala, ladakh,
+varanasi, andaman, mussoorie, amritsar,
+agra, ooty, kasol, mount_abu, srinagar,
+hampi, coorg, meghalaya
 ]).
 
-build_score_list([], _, _, _, _, _, _, []).
-build_score_list([D|T], Purpose, Climate, Budget, Duration, Transport, Crowd, [[D,Score]|R]) :-
-    trip_score(D, Purpose, Climate, Budget, Duration, Transport, Crowd, Score),
-    build_score_list(T, Purpose, Climate, Budget, Duration, Transport, Crowd, R).
+% ==========================================================
+% BUILD SCORE LIST
+% ==========================================================
 
-% ----------------------------------------------------------
-% INSERTION SORT (descending by score)
-% ----------------------------------------------------------
+build_score_list([], _, _, _, _, _, _, []).
+
+build_score_list([D|T], Purpose, Climate,
+                 Budget, Duration, Transport,
+                 Crowd, [[D,Score]|R]) :-
+
+    trip_score(D, Purpose, Climate,
+               Budget, Duration,
+               Transport, Crowd, Score),
+
+    build_score_list(T, Purpose, Climate,
+                     Budget, Duration,
+                     Transport, Crowd, R).
+
+% ==========================================================
+% INSERTION SORT
+% ==========================================================
 
 insert_score([D,S], [], [[D,S]]).
-insert_score([D,S], [[D1,S1]|T], [[D,S],[D1,S1]|T]) :-
+
+insert_score([D,S], [[D1,S1]|T],
+            [[D,S],[D1,S1]|T]) :-
+
     S >= S1, !.
-insert_score([D,S], [[D1,S1]|T], [[D1,S1]|R]) :-
-    S < S1,
+
+insert_score([D,S], [[D1,S1]|T],
+            [[D1,S1]|R]) :-
+
     insert_score([D,S], T, R).
 
 insertion_sort([], []).
-insertion_sort([H|T], Sorted) :-
-    insertion_sort(T, SortedTail),
-    insert_score(H, SortedTail, Sorted).
 
-% ----------------------------------------------------------
-% FILTER RULES
-% ----------------------------------------------------------
+insertion_sort([H|T], Sorted) :-
+    insertion_sort(T, Temp),
+    insert_score(H, Temp, Sorted).
+
+% ==========================================================
+% FILTER POSITIVE SCORES
+% ==========================================================
 
 filter_positive_scores([], []).
+
 filter_positive_scores([[D,S]|T], [[D,S]|R]) :-
     S > 0,
     filter_positive_scores(T, R).
+
 filter_positive_scores([[_,S]|T], R) :-
     S =< 0,
     filter_positive_scores(T, R).
 
-best_trip(Purpose, Climate, Budget, Duration, Transport, Crowd, SortedList) :-
+% ==========================================================
+% BEST TRIP
+% ==========================================================
+
+best_trip(Purpose, Climate, Budget, Duration,
+          Transport, Crowd, SortedList) :-
+
     all_destinations(List),
-    build_score_list(List, Purpose, Climate, Budget, Duration, Transport, Crowd, ScoreList),
+
+    build_score_list(List, Purpose, Climate,
+                     Budget, Duration,
+                     Transport, Crowd, ScoreList),
+
     filter_positive_scores(ScoreList, PositiveList),
+
     insertion_sort(PositiveList, SortedList).
 
-% ----------------------------------------------------------
+% ==========================================================
 % TOP RECOMMENDATION
-% ----------------------------------------------------------
+% ==========================================================
 
-top_recommendation(Purpose, Climate, Budget, Duration, Transport, Crowd, Destination, Score) :-
-    best_trip(Purpose, Climate, Budget, Duration, Transport, Crowd, [[Destination,Score]|_]).
+top_recommendation(Purpose, Climate, Budget,
+                   Duration, Transport, Crowd,
+                   Destination, Score) :-
 
-% ----------------------------------------------------------
-% PLAN STORAGE FEATURES
-% ----------------------------------------------------------
+    best_trip(Purpose, Climate, Budget,
+              Duration, Transport, Crowd,
+              [[Destination,Score]|_]).
 
-save_trip(User, Purpose, Climate, Budget, Duration, Transport, Crowd) :-
-    assertz(user_trip(User, Purpose, Climate, Budget, Duration, Transport, Crowd)).
+% ==========================================================
+% TOP 3 RECOMMENDATIONS
+% ==========================================================
 
-show_saved_trip(User, Purpose, Climate, Budget, Duration, Transport, Crowd) :-
-    user_trip(User, Purpose, Climate, Budget, Duration, Transport, Crowd).
+top_three_recommendations(Purpose, Climate, Budget,
+                          Duration, Transport, Crowd) :-
 
-saved_user_recommendation(User, Destination, Score) :-
-    user_trip(User, Purpose, Climate, Budget, Duration, Transport, Crowd),
-    top_recommendation(Purpose, Climate, Budget, Duration, Transport, Crowd, Destination, Score).
+    best_trip(Purpose, Climate, Budget,
+              Duration, Transport, Crowd,
+              [A,B,C|_]),
 
-% ----------------------------------------------------------
-% TRAVEL MANAGEMENT HELPERS
-% ----------------------------------------------------------
+    write(A), nl,
+    write(B), nl,
+    write(C), nl.
+
+% ==========================================================
+% SAVE USER TRIP
+% ==========================================================
+
+save_trip(User, Purpose, Climate, Budget,
+          Duration, Transport, Crowd) :-
+
+    assertz(user_trip(User, Purpose, Climate,
+                      Budget, Duration,
+                      Transport, Crowd)).
+
+show_saved_trip(User, Purpose, Climate,
+                Budget, Duration,
+                Transport, Crowd) :-
+
+    user_trip(User, Purpose, Climate,
+              Budget, Duration,
+              Transport, Crowd).
+
+% ==========================================================
+% EXPLANATION SYSTEM
+% ==========================================================
+
+explain_recommendation(Destination) :-
+
+    destination(Destination, Purpose, Climate,
+                Budget, Duration,
+                Transport, Crowd),
+
+    write('Destination: '), write(Destination), nl,
+    write('Purpose: '), write(Purpose), nl,
+    write('Climate: '), write(Climate), nl,
+    write('Budget: '), write(Budget), nl,
+    write('Duration: '), write(Duration), nl,
+    write('Transport: '), write(Transport), nl,
+    write('Crowd Level: '), write(Crowd), nl.
+
+why_recommended(Destination, Purpose) :-
+
+    destination(Destination, Purpose, _, _, _, _, _),
+
+    write(Destination),
+    write(' is recommended because it matches purpose: '),
+    write(Purpose), nl.
+
+% ==========================================================
+% NEGATIVE REASONING
+% ==========================================================
+
+avoid_crowded_places(Destination) :-
+
+    destination(Destination, _, _, _, _, _, high),
+
+    write(Destination),
+    write(' may be crowded during peak season.'), nl.
+
+% ==========================================================
+% TRAVEL ADVICE SYSTEM
+% ==========================================================
+
+travel_advice(manali) :-
+    write('Carry woolen clothes and snow shoes.'), nl.
+
+travel_advice(goa) :-
+    write('Carry sunscreen and beachwear.'), nl.
+
+travel_advice(ladakh) :-
+    write('Carry oxygen support medicines and jackets.'), nl.
+
+travel_advice(rishikesh) :-
+    write('Carry trekking shoes and light clothes.'), nl.
+
+% ==========================================================
+% PHOTOGRAPHY DESTINATIONS
+% ==========================================================
+
+perfect_for_photography(Destination) :-
+    activity(Destination, photography).
+
+perfect_for_photography(Destination) :-
+    activity(Destination, sunrise_view).
+
+perfect_for_photography(Destination) :-
+    activity(Destination, waterfall_visit).
+
+perfect_for_photography(Destination) :-
+    activity(Destination, snow_view).
+
+% ==========================================================
+% LUXURY AND BUDGET RULES
+% ==========================================================
+
+luxury_hotel_destination(Destination) :-
+    hotel_type(Destination, resort).
+
+luxury_hotel_destination(Destination) :-
+    hotel_type(Destination, heritage_hotel).
+
+luxury_hotel_destination(Destination) :-
+    hotel_type(Destination, lake_view_hotel).
+
+budget_friendly_destination(Destination) :-
+    cheap_trip(Destination),
+    hotel_type(Destination, hostel).
+
+budget_friendly_destination(Destination) :-
+    cheap_trip(Destination),
+    hotel_type(Destination, guest_house).
+
+% ==========================================================
+% NATURAL LANGUAGE STYLE RULES
+% ==========================================================
+
+where_should_i_go_for_honeymoon(Budget,
+                                Climate,
+                                Destination) :-
+
+    destination(Destination, honeymoon,
+                Climate, Budget,
+                _, _, _).
+
+where_should_i_go_for_family_trip(Budget,
+                                  Destination) :-
+
+    destination(Destination, family,
+                _, Budget,
+                _, _, _).
+
+best_place_for_summer(Destination) :-
+    best_season(Destination, summer).
+
+cheap_honeymoon_place(Destination) :-
+
+    honeymoon_trip(Destination),
+    cheap_trip(Destination).
+
+% ==========================================================
+% USER PREFERENCE LEARNING
+% ==========================================================
+
+save_preference(User, Preference) :-
+    assertz(user_preference(User, Preference)).
+
+show_preference(User, Preference) :-
+    user_preference(User, Preference).
+
+% ==========================================================
+% RECURSIVE DISPLAY HELPERS
+% ==========================================================
+
+print_recommendations([]).
+
+print_recommendations([[D,S]|T]) :-
+
+    write(D),
+    write(' -> score: '),
+    write(S), nl,
+
+    print_recommendations(T).
+
+print_activities(Destination) :-
+
+    activity(Destination, Activity),
+
+    write(Activity), nl,
+
+    fail.
+
+print_activities(_).
+
+print_hotels(Destination) :-
+
+    hotel_type(Destination, Hotel),
+
+    write(Hotel), nl,
+
+    fail.
+
+print_hotels(_).
+
+% ==========================================================
+% SAMPLE QUERIES
+% ==========================================================
+
+% ?- recommend_trip(honeymoon, cold, medium,
+%                   short, car, high, X).
+
+% ?- top_recommendation(adventure, cold,
+%                       high, long, flight,
+%                       low, D, S).
+
+% ?- best_trip(family, pleasant, medium,
+%              short, car, medium, L).
+
+% ?- explain_recommendation(manali).
+
+% ?- why_recommended(goa, leisure).
+
+% ?- top_three_recommendations(honeymoon,
+%                              pleasant,
+%                              medium,
+%                              short,
+%                              car,
+%                              medium).
+
+% ?- avoid_crowded_places(X).
+
+% ?- travel_advice(ladakh).
+
+% ?- print_activities(goa).
+
+% ?- save_trip(saloni, honeymoon,
+%              pleasant, medium,
+%              short, car, medium).
 
 trip_summary(Destination, Cost, Rating, Season) :-
     estimated_cost(Destination, Cost),
     rating(Destination, Rating),
     best_season(Destination, Season).
 
-luxury_hotel_destination(Destination) :-
-    hotel_type(Destination, resort).
-luxury_hotel_destination(Destination) :-
-    hotel_type(Destination, heritage_hotel).
-luxury_hotel_destination(Destination) :-
-    hotel_type(Destination, lake_view_hotel).
-luxury_hotel_destination(Destination) :-
-    hotel_type(Destination, beach_resort).
-luxury_hotel_destination(Destination) :-
-    hotel_type(Destination, houseboat).
-
-budget_friendly_destination(Destination) :-
-    cheap_trip(Destination),
-    hotel_type(Destination, hostel).
-budget_friendly_destination(Destination) :-
-    cheap_trip(Destination),
-    hotel_type(Destination, guest_house).
-budget_friendly_destination(Destination) :-
-    cheap_trip(Destination),
-    hotel_type(Destination, dharamshala).
-
-perfect_for_photography(Destination) :-
-    activity(Destination, photography).
-perfect_for_photography(Destination) :-
-    activity(Destination, sunrise_view).
-perfect_for_photography(Destination) :-
-    activity(Destination, waterfall_visit).
-perfect_for_photography(Destination) :-
-    activity(Destination, snow_view).
-
-% ----------------------------------------------------------
-% NATURAL QUERY STYLE HELPERS
-% ----------------------------------------------------------
-
-where_should_i_go_for_honeymoon(Budget, Climate, Destination) :-
-    destination(Destination, honeymoon, Climate, Budget, _, _, _).
-
-where_should_i_go_for_family_trip(Budget, Destination) :-
-    destination(Destination, family, _, Budget, _, _, _).
-
-where_should_i_go_for_adventure(Budget, Destination) :-
-    destination(Destination, adventure, _, Budget, _, _, _).
-
-show_places_with_activity(Activity, Destination) :-
-    activity(Destination, Activity).
-
-show_places_in_season(Season, Destination) :-
-    best_season(Destination, Season).
-
-show_cost_of_trip(Destination, Cost) :-
-    estimated_cost(Destination, Cost).
-
-show_rating_of_place(Destination, Rating) :-
-    rating(Destination, Rating).
-
-show_best_hotel_type(Destination, HotelType) :-
-    hotel_type(Destination, HotelType).
-
-% ----------------------------------------------------------
-% RECURSIVE DISPLAY HELPERS
-% ----------------------------------------------------------
-
-print_recommendations([]).
-print_recommendations([[D,S]|T]) :-
-    write(D), write(' -> score: '), write(S), nl,
-    print_recommendations(T).
-
-print_activities(Destination) :-
-    activity(Destination, Activity),
-    write(Activity), nl,
-    fail.
-print_activities(_).
-
-print_hotels(Destination) :-
-    hotel_type(Destination, HotelType),
-    write(HotelType), nl,
-    fail.
-print_hotels(_).
-
 % ==========================================================
-% SAMPLE QUERY IDEAS
+% END OF PROJECT
 % ==========================================================
-% ?- recommend_trip(honeymoon, cold, medium, short, car, high, X).
-% ?- top_recommendation(adventure, cold, high, long, flight, low, D, S).
-% ?- best_trip(family, pleasant, medium, short, car, medium, L).
-% ?- show_places_with_activity(beach, X).
-% ?- save_trip(saloni, honeymoon, pleasant, medium, short, car, medium).
-% ?- saved_user_recommendation(saloni, D, S).
-% ?- trip_summary(udaipur, Cost, Rating, Season).
